@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card bg-dark mb-4">
+            <div class="card-header">
+                <h2 class="card-title"><i class="fas fa-camera me-2"></i>Sign Language Recognition</h2>
+            </div>
+            <div class="card-body">
+                <!-- Camera feed and controls -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="camera-container">
+                            <video id="video-element" playsinline autoplay muted class="d-none"></video>
+                            <canvas id="output-canvas" class="w-100"></canvas>
+                            <canvas id="capture-canvas" class="d-none"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="result-container">
+                            <div class="result-label">Current Recognition:</div>
+                            <div id="result-text">Waiting for camera...</div>
+                            <div class="confidence-container mt-3">
+                                <label for="confidence-level" class="form-label">Confidence:</label>
+                                <div class="progress">
+                                    <div id="confidence-level" class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small id="confidence-text" class="form-text text-muted">0%</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controls when camera is inactive -->
+                <div id="controls-inactive" class="controls-container text-center mt-4">
+                    <p class="mb-4">Click the button below to start your camera and begin sign language recognition</p>
+                    <button id="start-btn" class="btn btn-primary btn-lg">
+                        <i class="fas fa-play-circle me-2"></i>Start Camera
+                    </button>
+                </div>
+                
+                <!-- Controls when camera is active -->
+                <div id="controls-active" class="controls-container mt-4" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button id="stop-btn" class="btn btn-danger control-btn" disabled>
+                                <i class="fas fa-stop-circle me-2"></i>Stop Camera
+                            </button>
+                            <button id="clear-btn" class="btn btn-warning control-btn">
+                                <i class="fas fa-eraser me-2"></i>Clear Text
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button id="space-btn" class="btn btn-info control-btn">
+                                <i class="fas fa-space-shuttle me-2"></i>Add Space
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Translation Output -->
+        <div class="card bg-dark mb-4">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-language me-2"></i>Translation Output</h3>
+            </div>
+            <div class="card-body">
+                <div class="translation-container">
+                    <p id="full-translation"></p>
+                </div>
+                <div class="text-end mt-2">
+                    <button class="btn btn-outline-secondary btn-sm" onclick="document.getElementById('full-translation').textContent = ''">
+                        <i class="fas fa-trash me-2"></i>Clear All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Reference sidebar -->
+    <div class="col-lg-4">
+        <div class="card bg-dark">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-book me-2"></i>ASL Reference</h3>
+            </div>
+            <div class="card-body">
+                <img src="{{ url_for('static', filename='images/asl_reference.svg') }}" alt="ASL Alphabet Reference" class="img-fluid asl-reference">
+                <div class="reference-info mt-3">
+                    <h5>How to Use This Tool:</h5>
+                    <ol>
+                        <li>Start your camera</li>
+                        <li>Position your hand in the frame</li>
+                        <li>Form an ASL sign from the reference</li>
+                        <li>Hold the sign steady</li>
+                        <li>The recognized letter will appear in the output</li>
+                    </ol>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> For best results, use good lighting and a plain background.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
