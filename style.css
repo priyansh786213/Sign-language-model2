@@ -1,0 +1,125 @@
+.camera-container {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--bs-dark);
+}
+
+#video-element {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#output-canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#capture-canvas {
+    display: none; 
+}
+
+.result-container {
+    background-color: var(--bs-dark);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.result-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#result-text {
+    font-size: 24px;
+    min-height: 36px;
+    font-weight: bold;
+    color: var(--bs-info);
+}
+
+.confidence-container {
+    margin-top: 10px;
+}
+
+/* Translation history area */
+.translation-container {
+    background-color: var(--bs-dark);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    min-height: 100px;
+}
+
+#full-translation {
+    font-size: 18px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.controls-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.reference-container {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: var(--bs-dark);
+    border-radius: 8px;
+}
+
+.reference-title {
+    margin-bottom: 15px;
+}
+
+.reference-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .control-btn {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    #result-text {
+        font-size: 20px;
+    }
+}
+
+.instructions-container {
+    background-color: var(--bs-dark);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.instructions-list {
+    padding-left: 20px;
+}
+
+.instructions-list li {
+    margin-bottom: 10px;
+}
+
+
+#alert-placeholder {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    max-width: 300px;
+}
