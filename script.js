@@ -1,16 +1,15 @@
+// Define global variables
 let videoElement;
 let captureCanvas;
 let captureContext;
 let outputCanvas;
 let outputContext;
 let mediaStream = null;
-let processingInterval = null;
-let recognizedText = "";
 let processingActive = false;
 let lastProcessedTime = 0;
-let frameRateLimit = 5; // Process frames per second
+const frameRateLimit = 5; // Process frames per second
 let textHistory = [];
-let historyLimit = 5; // Number of letters to keep in history
+const historyLimit = 5; // Number of letters to keep in history
 
 // DOM elements
 document.addEventListener('DOMContentLoaded', () => {
@@ -225,7 +224,7 @@ function showMessage(message, type) {
     const alertPlaceholder = document.getElementById('alert-placeholder');
     const wrapper = document.createElement('div');
     wrapper.innerHTML = [
-        <div class="alert alert-${type} alert-dismissible fade show" role="alert">,
+        `<div class="alert alert-${type} alert-dismissible fade show" role="alert">`,
         `   <div>${message}</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         '</div>'
